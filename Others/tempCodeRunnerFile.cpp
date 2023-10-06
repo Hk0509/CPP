@@ -1,4 +1,2 @@
-if(ind < i){
-        cout<<endl;
-        return ; 
-    }
+ ans = (2*avg)*(n+1) - sum;
+    cou
