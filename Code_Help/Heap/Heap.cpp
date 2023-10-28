@@ -105,12 +105,13 @@ void heapSort(int arr[], int n)
 
 int main()
 {
-    // Heap h;
-    // h.insert(100);
-    // h.insert(50);
-    // h.insert(55);
-    // h.insert(67);
-    // h.deleteFromHeap();
+    // Top value will always be at correct position
+    //  Heap h;
+    //  h.insert(100);
+    //  h.insert(50);
+    //  h.insert(55);
+    //  h.insert(67);
+    //  h.deleteFromHeap();
 
     // h.print();
     int arr[6] = {-1, 54, 53, 55, 52, 50};
