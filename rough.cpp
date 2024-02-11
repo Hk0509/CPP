@@ -1,51 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main()
 {
-    int n,m;
-    cin>>n>>m;
-    vector<pair<int,int>>bag;
-    vector<pair<int,int>>cust;
-    
-    for(int i=0;i<n;i++)
-    {
-        int x,y;
-        cin>>x>>y;
-        cust.push_back({y,x});
-    }
-    for(int i=0;i<m;i++)
-    {
-        int x,y;
-        cin>>x>>y;
-        bag.push_back({y,x});
-    }
+    int z1,z2,x1,x2,y1,y2;
+    cin>>z1>>z2>>x1>>x2>>y1>>y2;
 
-    sort(bag.begin(),bag.end(), greater<int>()); 
-    sort(cust.begin(),cust.end(), greater<int>()); 
-    
-    int i=n-1,j=m-1;
-    int ans=0;
-    //price quantity
-    while(i>=0 && j>=0)
+    int ar = ceil(sqrt(pow(x1 - z1, 2) + pow(x2 - z2, 2))); 
+    int wd = ceil(sqrt(pow(y1 - z1, 2) + pow(y2 - z2, 2)));
+
+    int aa = ceil(3.14*(ar*ar));
+    int ca = ceil(3.14*(wd*wd));
+
+    int ans = -1;
+    if(aa < ca)
     {
-        if(cust[i].first >= bag[j].first)
+        int ea = ca - aa;
+        int uV = ceil(sqrt(ea));
+        int lV = floor(sqrt(ea));
+        int us = uV*uV, ls = lV*lV;
+        if(abs(us - ea) < abs(ea - ls))
         {
-            if(cust[i].second < bag[j].second)
-            {
-                ans++;
-                i--;
-                j--;
-            }
-            else
-            {
-                j--;
-            }       
+            ans = (us - ea)*20;
+            cout<<"Krishna "<<ans<<endl;
         }
-        else
+        else if(abs(us - ea) > abs(ea - ls))
         {
-            i--;
-        }     
+            ans = (ea - ls)*20;
+            cout<<"Shiva "<<ans<<endl;
+        }
     }
-    cout<<ans;
-    return 0;
+    else if(aa > ca)
+    {
+        ans = abs(ca - aa)*20;
+        cout<<"Krishna "<<ans<<endl;
+    }
+    else
+    cout<<ans<<endl;
 }
